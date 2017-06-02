@@ -1,0 +1,20 @@
+{
+    "name": "aliyun/aliyun-opensearch-php-sdk",
+    "description": " PHP SDK of OpenSearch for composer",
+    "keywords": ["aliyun", "opensearch"],
+    "authors": [
+        {
+            "name": "Alibaba",
+            "email": "developer@aliyun.com",
+            "homepage": "https://www.aliyun.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenSearch\\": "OpenSearch/"
+        }
+    }
+}
