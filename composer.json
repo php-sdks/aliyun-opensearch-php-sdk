@@ -13,8 +13,8 @@
         "php": ">=5.3"
     },
     "autoload": {
-        "psr-4": {
-            "OpenSearch\\": "OpenSearch/"
-        }
+        "files": [
+            "OpenSearch/Autoloader/Autoloader.php"
+        ]
     }
 }
