@@ -100,10 +100,6 @@ class ClauseParamsBuilder {
                 self::CLAUSE_CONFIG_KV_SEPARATOR . $this->params->rank->reRankSize;
         }
 
-        if (isset($this->params->config->kvpairs)) {
-            $config[] = self::KVPAIRS . self::CLAUSE_CONFIG_KV_SEPARATOR . $this->params->config->kvpairs;
-        }
-
         if (isset($this->params->config->customConfig)) {
             foreach ($this->params->config->customConfig as $k => $v) {
                 $config[] = $k . self::CLAUSE_CONFIG_KV_SEPARATOR . $v;
@@ -201,6 +197,12 @@ class ClauseParamsBuilder {
         }
     }
 
+    private function buildKVPairsClause() {
+        if (isset($this->params->config->kvpairs)) {
+            $this->clauses[self::KVPAIRS] = $this->params->config->kvpairs;
+        }
+    }
+
     public function getClausesString() {
         $this->buildConfigClause();
         $this->buildQueryClause();
@@ -208,6 +210,7 @@ class ClauseParamsBuilder {
         $this->buildFilterClause();
         $this->buildDistinctClause();
         $this->buildAggregateClause();
+        $this->buildKVPairsClause();
 
         $clauses = array();
         foreach ($this->clauses as $clauseKey => $value) {
